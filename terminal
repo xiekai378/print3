@@ -1,0 +1,17 @@
+# 创建项目
+npm create vue@latest print-quote-system
+
+# 选择以下配置
+✔ Add TypeScript? Yes
+✔ Add JSX Support? Yes 
+✔ Add Vue Router? Yes
+✔ Add Pinia? Yes
+✔ Add Vitest? Yes
+✔ Add ESLint? Yes
+✔ Add Prettier? Yes
+
+# 安装依赖
+cd print-quote-system
+npm install
+npm install element-plus 
+npm install @element-plus/icons-vue 
