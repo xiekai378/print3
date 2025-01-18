@@ -17,44 +17,44 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'personalized',
         name: 'personalized',
-        component: () => import('@/views/personalized/index.vue'),
+        component: () => import('@/views/PersonalizedView.vue'),
         children: [
           {
             path: 'formula',
             name: 'formula',
-            component: () => import('@/views/personalized/formula.vue'),
+            component: () => import('@/views/data/personalized/FormulaView.vue'),
           },
           {
             path: 'loss',
             name: 'loss',
-            component: () => import('@/views/personalized/loss.vue'),
+            component: () => import('@/views/data/personalized/LossView.vue'),
           },
           {
             path: 'product',
             name: 'product',
-            component: () => import('@/views/personalized/product.vue'),
+            component: () => import('@/views/data/personalized/ProductView.vue'),
             children: [
               {
                 path: 'box',
                 name: 'box',
-                component: () => import('@/views/personalized/product/BoxConfig.vue'),
+                component: () => import('@/views/data/personalized/product/BoxView.vue'),
               },
               {
                 path: 'hardcover',
                 name: 'hardcover',
-                component: () => import('@/views/personalized/product/HardcoverConfig.vue'),
+                component: () => import('@/views/data/personalized/product/HardcoverView.vue'),
               },
               {
                 path: 'book',
                 name: 'book',
-                component: () => import('@/views/personalized/product/BookConfig.vue'),
+                component: () => import('@/views/data/personalized/product/BookView.vue'),
               },
             ],
           },
           {
             path: 'template',
             name: 'template',
-            component: () => import('@/views/personalized/template.vue'),
+            component: () => import('@/views/data/personalized/TemplateView.vue'),
           },
         ],
       },
@@ -78,17 +78,17 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'data',
         name: 'data',
-        component: () => import('@/views/data/index.vue'),
+        component: () => import('@/views/DataView.vue'),
         children: [
           {
             path: 'product-type',
             name: 'product-type',
-            component: () => import('@/views/data/ProductType.vue'),
+            component: () => import('@/views/data/ProductTypeView.vue'),
           },
           {
             path: 'material',
             name: 'material',
-            component: () => import('@/views/data/Material.vue'),
+            component: () => import('@/views/data/MaterialView.vue'),
             children: [
               {
                 path: 'normal',
@@ -130,7 +130,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: 'process',
             name: 'process',
-            component: () => import('@/views/data/craft.vue'),
+            component: () => import('@/views/data/ProcessView.vue'),
             children: [
               {
                 path: 'print',
@@ -177,7 +177,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: 'machine',
             name: 'machine',
-            component: () => import('@/views/data/Machine.vue'),
+            component: () => import('@/views/data/MachineView.vue'),
           },
         ],
       },

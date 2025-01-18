@@ -21,11 +21,12 @@
 
     <div class="container">
       <!-- 侧边栏 -->
-      <el-aside width="240px">
+      <el-aside width="240px" class="aside">
         <el-menu
           :default-active="activeMenu"
           class="el-menu-vertical"
           :collapse="false"
+          :unique-opened="true"
           background-color="#001529"
           text-color="#fff"
           router
@@ -127,7 +128,7 @@
       </el-aside>
 
       <!-- 主内容区 -->
-      <el-main>
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
     </div>
@@ -183,31 +184,53 @@ const activeMenu = computed(() => {
 }
 
 .container {
-  flex: 1;
   display: flex;
   margin-top: 60px;
+  height: calc(100vh - 60px);
 }
 
-.el-menu-vertical {
-  height: calc(100vh - 60px);
-  border-right: none;
+.aside {
   position: fixed;
   left: 0;
   top: 60px;
   bottom: 0;
+  width: 240px;
+  background-color: #001529;
+  z-index: 999;
 }
 
-.el-menu-vertical:not(.el-menu--collapse) {
-  width: 240px;
+.el-menu-vertical {
+  height: 100%;
+  border-right: none;
+}
+
+:deep(.el-menu-item), :deep(.el-sub-menu__title) {
+  padding-left: 20px !important;
 }
 
 :deep(.el-sub-menu .el-menu-item) {
-  min-width: 240px;
+  padding-left: 40px !important;
 }
 
-.el-main {
+.main {
   margin-left: 240px;
-  padding: 20px;
+  padding: 0;
   background-color: #f0f2f5;
+  min-height: calc(100vh - 60px);
+  width: calc(100% - 240px);
+  overflow-x: hidden;
+}
+
+:deep(.el-menu) {
+  border-right: none;
+}
+
+:deep(.el-menu-item) {
+  height: 50px;
+  line-height: 50px;
+}
+
+:deep(.el-menu-item.is-active) {
+  background-color: #ecf5ff;
 }
 </style> 

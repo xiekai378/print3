@@ -10,6 +10,6 @@
 
 <style scoped>
 .material-management {
-  padding: 20px;
+  padding: 0;
 }
 </style> 

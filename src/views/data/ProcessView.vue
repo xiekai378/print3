@@ -1,6 +1,5 @@
 <template>
   <div class="process">
-    <h2>工艺管理</h2>
     <router-view></router-view>
   </div>
 </template>
@@ -11,6 +10,6 @@
 
 <style scoped>
 .process {
-  padding: 20px;
+  padding: 0;
 }
 </style> 

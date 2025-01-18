@@ -10,6 +10,6 @@
 
 <style scoped>
 .process-management {
-  padding: 20px;
+  padding: 0;
 }
 </style> 

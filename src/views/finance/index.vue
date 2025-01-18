@@ -10,6 +10,6 @@
 
 <style scoped>
 .finance {
-  padding: 20px;
+  padding: 0;
 }
 </style> 

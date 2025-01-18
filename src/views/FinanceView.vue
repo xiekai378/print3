@@ -1,6 +1,5 @@
 <template>
   <div class="finance">
-    <h1>财务管理</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -11,6 +10,6 @@
 
 <style scoped>
 .finance { 
-  padding: 20px;
+  padding: 0;
 }
 </style> 
