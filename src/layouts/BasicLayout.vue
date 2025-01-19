@@ -11,7 +11,7 @@
           <el-icon><HomeFilled /></el-icon>
           <span>首页</span>
         </el-menu-item>
-        
+
         <el-sub-menu index="/personalized">
           <template #title>
             <el-icon><Setting /></el-icon>
@@ -23,15 +23,46 @@
           <el-menu-item index="/personalized/template">报价模板管理</el-menu-item>
         </el-sub-menu>
 
+        <el-sub-menu index="/order-customer">
+          <template #title>
+            <el-icon><Document /></el-icon>
+            <span>订单与客户管理</span>
+          </template>
+          <el-menu-item index="/order-customer/orders">订单列表</el-menu-item>
+          <el-menu-item index="/order-customer/customers">客户列表</el-menu-item>
+        </el-sub-menu>
+
         <el-sub-menu index="/data">
           <template #title>
-            <el-icon><Folder /></el-icon>
+            <el-icon><DataLine /></el-icon>
             <span>数据管理</span>
           </template>
           <el-menu-item index="/data/product-type">产品类型管理</el-menu-item>
           <el-menu-item index="/data/material">材料管理</el-menu-item>
           <el-menu-item index="/data/craft">工艺管理</el-menu-item>
-          <el-menu-item index="/data/machine">设备管理</el-menu-item>
+          <el-menu-item index="/data/machine">机器管理</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/financial">
+          <template #title>
+            <el-icon><Money /></el-icon>
+            <span>财务管理</span>
+          </template>
+          <el-menu-item index="/financial/processing">加工费结算</el-menu-item>
+          <el-menu-item index="/financial/processing-list">加工费列表</el-menu-item>
+          <el-menu-item index="/financial/statement">对账单</el-menu-item>
+          <el-menu-item index="/financial/customer-settlement">客户结算</el-menu-item>
+          <el-menu-item index="/financial/settlement-list">客户结算列表</el-menu-item>
+          <el-menu-item index="/financial/payment">客户付款单</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/user">
+          <template #title>
+            <el-icon><User /></el-icon>
+            <span>用户中心</span>
+          </template>
+          <el-menu-item index="/user/settings">个人设置</el-menu-item>
+          <el-menu-item index="/user/rewards">用户激励</el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-aside>
@@ -43,14 +74,14 @@
         <div class="header-content">
           <h2>智能印刷报价系统</h2>
           <div class="header-right">
+            <!-- 用户信息等 -->
             <el-dropdown>
-              <span class="user-info">
-                管理员 <el-icon><ArrowDown /></el-icon>
+              <span class="el-dropdown-link">
+                <el-avatar :size="32" icon="UserFilled" />
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item>个人信息</el-dropdown-item>
-                  <el-dropdown-item>修改密码</el-dropdown-item>
+                  <el-dropdown-item>个人设置</el-dropdown-item>
                   <el-dropdown-item divided>退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
@@ -58,8 +89,9 @@
           </div>
         </div>
       </el-header>
-      
+
       <el-main>
+        <!-- 路由出口 -->
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -67,18 +99,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { HomeFilled, Setting, Folder, ArrowDown } from '@element-plus/icons-vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import {
+  HomeFilled,
+  Setting,
+  Document,
+  DataLine,
+  Money,
+  User,
+  UserFilled
+} from '@element-plus/icons-vue'
 
 const router = useRouter()
-const route = useRoute()
-const activeMenu = ref(route.path)
-
-// 监听路由变化
-watch(() => route.path, (newPath) => {
-  activeMenu.value = newPath
-})
+const activeMenu = ref(router.currentRoute.value.path)
 
 const handleSelect = (index: string) => {
   router.push(index)
@@ -108,20 +142,14 @@ const handleSelect = (index: string) => {
   align-items: center;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 0 10px;
-}
-
 .el-menu-vertical {
   height: 100%;
   border-right: none;
 }
 
-.el-main {
-  background-color: #f5f7fa;
-  padding: 20px;
+.el-dropdown-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-</style> 
+</style>

@@ -216,6 +216,11 @@ const routes: Array<RouteRecordRaw> = [
             name: 'payment',
             component: () => import('@/views/data/finance/Payment.vue'),
           },
+          {
+            path: 'processing',
+            name: 'processing',
+            component: () => import('@/views/data/finance/ProcessingSettlement.vue'),
+          },
         ],
       },
       {
@@ -254,6 +259,11 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/views/data/user/incentive/Mall.vue'),
               },
             ],
+          },
+          {
+            path: 'rewards',
+            name: 'rewards',
+            component: () => import('@/views/data/user/RewardsView.vue'),
           },
         ],
       },
